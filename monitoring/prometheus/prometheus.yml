@@ -1,0 +1,10 @@
+# Prometheus placeholder
+# This would scrape metrics from sample-service
+
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: 'sample-service'
+    static_configs:
+      - targets: ['sample-service:5000']

@@ -1,0 +1,13 @@
+# Alerts placeholder
+# Example alert rules
+
+groups:
+  - name: sample-service-alerts
+    rules:
+      - alert: SampleServiceDown
+        expr: up{job="sample-service"} == 0
+        for: 5m
+        labels:
+          severity: critical
+        annotations:
+          summary: "Sample Service is down"
