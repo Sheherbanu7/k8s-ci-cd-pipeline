@@ -1,0 +1,41 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install -r src/sample-service/requirements.txt
+
+      - name: Run Tests
+        run: |
+          echo "Placeholder: unit tests"
+
+      - name: Build Docker Image
+        run: |
+          echo "Placeholder: docker build -t sample-service:latest ."
+
+      - name: Push to Registry
+        run: |
+          echo "Placeholder: docker push your-dockerhub-username/sample-service:latest"
+
+      - name: Deploy to Kubernetes
+        run: |
+          echo "Placeholder: kubectl apply -f k8s/deployment.yaml"
